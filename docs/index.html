@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="icon" href="_media/favicon.ico">
+    <meta charset="UTF-8">
+    <title>EADocsTemplate</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsify@4/lib/themes/vue.css">
+    <style>
+        .mermaid svg {
+            width: 100%;
+            height: 100%;
+        }
+
+        .app-name-link>img {
+            width: 75%;
+        }
+
+        .cover-main>p>img {
+            width: 250px
+        }
+
+        .markdown-section pre>code {
+            padding: 1.2em 5px !important;
+        }
+
+        .bannerImg {
+            width: 70%;
+            text-align: center;
+        }
+
+        .bannerImgBig {
+            width: 50%;
+            text-align: center;
+        }
+
+        .sidebar li>p>a {
+            font-weight: 700;
+            color: #364149;
+        }
+
+        .markdown-section h3 {
+            font-size: 1.3rem;
+            margin: 40px 0 .6rem;
+        }
+
+        .img-border img {
+            border: 1px solid #eee;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app"></div>
+    <script>
+        window.$docsify = {
+            plantuml: {
+                skin: 'classic',
+            },
+            markdown: {
+                renderer: {
+                    code: function (code, lang) {
+                        code = code.replace(/modified=.{26}/gm, "")
+                        if (lang === 'drawio') {
+                            if (window.drawioConverter) {
+                                return window.drawioConverter(code)
+                            } else {
+                                return `<div class='drawio-code'>${code}</div>`
+                            }
+                        } else {
+                            return this.origin.code.apply(this, arguments);
+                        }
+                    }
+                }
+            },
+            name: 'EADocsTemplate',
+            repo: 'https://github.com/eaceto/EADocsTemplate',
+            logo: '/_media/logoDocs.svg',
+            homepage: 'home.md',
+            coverpage: false,
+            themeColor: '#ea1e26',
+            loadSidebar: true,
+            auto2top: true,
+            relativePath: true,
+            mergeNavbar: true,
+            maxLevel: 4,
+            subMaxLevel: 2,
+            plugins: [
+                function (hook, vm) {
+                    hook.ready(function () {
+                        /**
+                         * This is a workaround for the on call guide because when we ad multiple video the sidebar
+                         * start duplicating content so here we are removing.
+                         */
+                        const removeElements = (elms) => elms.forEach((el, index) => { if (index != 0) el.remove() });
+                        removeElements(document.querySelectorAll(".app-sub-sidebar"));
+                        const removeParentElements = (elms) => elms.forEach((el, index) => { el.parentElement.remove() });
+                        removeParentElements(document.querySelectorAll('[title="EADocsTemplate"]'));
+                    })
+
+                    hook.doneEach(function () {
+                        const removeElements = (elms) => elms.forEach((el, index) => { if (index != 0) el.remove() });
+                        removeElements(document.querySelectorAll(".app-sub-sidebar"));
+                        const removeParentElements = (elms) => elms.forEach((el, index) => { el.parentElement.remove() });
+                        removeParentElements(document.querySelectorAll('[title="EADocsTemplate"]'));
+                    });
+                }]
+        }
+    </script>
+    <!-- Docsify v4 -->
+    <script src="https://cdn.jsdelivr.net/npm/docsify@4.12.1"></script>
+    <script src="https://cdn.jsdelivr.net/npm/docsify/lib/plugins/search.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/prismjs/components/prism-http.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/prismjs/components/prism-bash.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/prismjs/components/prism-json.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/prismjs/components/prism-yaml.min.js"></script>
+    <script src="https://unpkg.com/docsify-pagination/dist/docsify-pagination.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfobject/2.2.8/pdfobject.min.js"></script>
+    <script src="https://unpkg.com/docsify-pdf-embed-plugin/src/docsify-pdf-embed.js"></script>
+
+    <!-- Mermaid-->
+    <script src="https://unpkg.com/mermaid/dist/mermaid.js"></script>
+    <script src="https://unpkg.com/docsify-mermaid@latest/dist/docsify-mermaid.js"></script>
+    <script>mermaid.initialize({ startOnLoad: true });</script>
+    <!-- Mermaid End-->
+
+    <!-- Drawio -->
+    <script src="./drawer-viewer.min.js"></script>
+    <script src='https://cdn.jsdelivr.net/npm/docsify-drawio/drawio.js'></script>
+    <!-- Drawio End -->
+
+    <!-- PlantUml-->
+    <script src="https://unpkg.com/docsify-plantuml/dist/docsify-plantuml.min.js"></script>
+
+
+
+</body>
+
+</html>
