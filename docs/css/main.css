@@ -1,0 +1,40 @@
+.mermaid svg {
+    width: 100%;
+    height: 100%;
+}
+
+.app-name-link>img {
+    width: 50%;
+}
+
+.cover-main>p>img {
+    width: 250px
+}
+
+.markdown-section pre>code {
+    padding: 1.2em 5px !important;
+}
+
+.bannerImg {
+    width: 70%;
+    text-align: center;
+}
+
+.bannerImgBig {
+    width: 50%;
+    text-align: center;
+}
+
+.sidebar li>p>a {
+    font-weight: 700;
+    color: #364149;
+}
+
+.markdown-section h3 {
+    font-size: 1.3rem;
+    margin: 40px 0 .6rem;
+}
+
+.img-border img {
+    border: 1px solid #eee;
+}
