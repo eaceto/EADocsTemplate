@@ -2,7 +2,7 @@
 
 - Getting Started
 
-  - [Intro](/getting-started/intro.md)
+  - [Basics](/getting-started/basics.md)
   - [Writing code](/getting-started/code.md)
   - [Image support](/getting-started/image.md)
 
