@@ -38,3 +38,16 @@
 .img-border img {
     border: 1px solid #eee;
 }
+
+.markdown-section pre[data-lang] {
+    overflow: auto !important;
+}
+
+.markdown-section pre[data-lang] code {
+    overflow: visible;
+}
+
+.line-numbers .line-numbers-rows {
+    border-right: 2px solid white;
+    padding: 2.2em 0;
+}

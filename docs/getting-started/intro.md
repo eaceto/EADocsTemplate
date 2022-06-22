@@ -8,80 +8,10 @@ Emoji Support
 
 This template works :100: with emojis!
 
-Tabs
------
-
-You can add Tabs to your documentation. This is very usefull when showing how to do something in different programming languages.
-
-```markdown
-    <!-- tabs:start -->
-    #### **Swift**
-
-    ```swift
-    struct Person {
-        let firstName: String
-        let lastName: String
-    }
-    ``` 
-
-    #### **Objective C**
-
-    ```objc
-    @interface Person : NSObject
-    @property (readonly) NSString *firstName;
-    @property (readonly) NSString *lastName;
-    @end
-    ```
-
-    #### **Kotlin**
-
-    ```kotlin
-    data class Person(val firstName: String, val lastName: String)
-    ```
-
-    <!-- tabs:end -->
-```
-
-renders as follows:
-
-<!-- tabs:start -->
-#### **Swift**
-
-```swift
-struct Person {
-    let firstName: String
-    let lastName: String
-}
-``` 
-
-#### **Objective C**
-
-```objc
-@interface Person : NSObject
-@property (readonly) NSString *firstName;
-@property (readonly) NSString *lastName;
-@end
-```
-
-#### **Kotlin**
-
-```kotlin
-data class Person(val firstName: String, val lastName: String)
-```
-
-<!-- tabs:end -->
-
-Images with Zoom
------
-
-You can paste images and enoy a nice zoom in/out automatically. Mouse over, or tap, over the following image.
-
-![Milky way image](big_image.jpeg)
-
 JSON and XML
 -----
 
-Render JSON and XML using standard Markdown.
+JSON and XML are rendered as usual using Markdown.
 
 #### JSON
 ```json

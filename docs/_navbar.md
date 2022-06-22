@@ -2,4 +2,4 @@
 
 * [Home](/)
 * [My Blog](https://eaceto.dev)
-* [Author](https://github.com/eaceto)
+* [About me](https://github.com/eaceto)
